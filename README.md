@@ -20,8 +20,8 @@
 | title | string | null: false |
 | question | text | null: false |
 | correct_ans | string | null: false |
-| wrong_1 | string | null: false |
-| wrong_2 | string | null: false |
+| wrong_ans_1 | string | null: false |
+| wrong_ans_2 | string | null: false |
 | user | string | null: false |
 | genre | string | null: false |
 
