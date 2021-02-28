@@ -104,10 +104,10 @@ z-index: 90;
 .finish-text{
   color:blue;;
   text-decoration: none;
-  /* cursor:pointer; */
+  cursor:pointer;
 }
 
-/* .finish-text:hover{color:blueviolet} */
+.finish-text:hover{color:blueviolet}
 
 .finish-text-return{
   text-decoration: none;

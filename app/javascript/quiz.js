@@ -186,52 +186,32 @@ function quizApp(){
 
               let textIndex = 0;
               let finishTextLength = $finish_text.length;
-              while(textIndex < finishTextLength){
-                $finish_text[textIndex].textContent = gon.question[textIndex].title;
-                
-                textIndex++;
-              }
+                while(textIndex < finishTextLength){
+                  $finish_text[textIndex].textContent = gon.question[textIndex].title;
+                  textIndex++;
+                }
+              console.log(gon.question[0])
           //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
-              $finish_text[0].addEventListener('click',function(){
-                const qId = gon.question[0].id;
-                $finish_text[0].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              })
-              $finish_text[1].addEventListener('click',function(){
-                const qId = gon.question[1].id;
-                $finish_text[1].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              })
-              $finish_text[2].addEventListener('click',function(){
-                const qId = gon.question[2].id;
-                $finish_text[2].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              })
-              $finish_text[3].addEventListener('click',function(){
-                const qId = gon.question[3].id;
-                $finish_text[3].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              })
-              $finish_text[4].addEventListener('click',function(){
-                const qId = gon.question[4].id;
-                $finish_text[4].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              })
-              // $finish_text[0].addEventListener('click',function(){
-              //   const qId = gon.question[0].id;
-              //   $finish_text[0].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[1].addEventListener('click',function(){
-              //   const qId = gon.question[1].id;
-              //   $finish_text[1].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[2].addEventListener('click',function(){
-              //   const qId = gon.question[2].id;
-              //   $finish_text[2].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[3].addEventListener('click',function(){
-              //   const qId = gon.question[3].id;
-              //   $finish_text[3].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[4].addEventListener('click',function(){
-              //   const qId = gon.question[4].id;
-              //   $finish_text[4].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
+          $finish_text[0].addEventListener('click',function(){
+            const qId = gon.question[0].id;
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+          })
+          $finish_text[1].addEventListener('click',function(){
+            const qId = gon.question[1].id;
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+          })
+          $finish_text[2].addEventListener('click',function(){
+            const qId = gon.question[2].id;
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+          })
+          $finish_text[3].addEventListener('click',function(){
+            const qId = gon.question[3].id;
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+          })
+          $finish_text[4].addEventListener('click',function(){
+            const qId = gon.question[4].id;
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+          })
           //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
               
               
@@ -346,24 +326,44 @@ function quizApp(){
           //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
           $finish_text[0].addEventListener('click',function(){
             const qId = gon.question[0].id;
-            $finish_text[0].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
           })
           $finish_text[1].addEventListener('click',function(){
             const qId = gon.question[1].id;
-            $finish_text[1].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
           })
           $finish_text[2].addEventListener('click',function(){
             const qId = gon.question[2].id;
-            $finish_text[2].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
           })
           $finish_text[3].addEventListener('click',function(){
             const qId = gon.question[3].id;
-            $finish_text[3].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
           })
           $finish_text[4].addEventListener('click',function(){
             const qId = gon.question[4].id;
-            $finish_text[4].href =("//quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+            window.open("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
           })
+              // $finish_text[0].addEventListener('click',function(){
+              //   const qId = gon.question[0].id;
+              //   $finish_text[0].href =("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
+              // })
+              // $finish_text[1].addEventListener('click',function(){
+              //   const qId = gon.question[1].id;
+              //   $finish_text[1].href =("//localhost:3000/questions/" + qId +"/comments")
+              // })
+              // $finish_text[2].addEventListener('click',function(){
+              //   const qId = gon.question[2].id;
+              //   $finish_text[2].href =("//localhost:3000/questions/" + qId +"/comments")
+              // })
+              // $finish_text[3].addEventListener('click',function(){
+              //   const qId = gon.question[3].id;
+              //   $finish_text[3].href =("//localhost:3000/questions/" + qId +"/comments")
+              // })
+              // $finish_text[4].addEventListener('click',function(){
+              //   const qId = gon.question[4].id;
+              //   $finish_text[4].href =("//localhost:3000/questions/" + qId +"/comments")
+              // })
           //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
               
               
