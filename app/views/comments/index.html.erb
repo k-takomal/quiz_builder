@@ -8,7 +8,7 @@
     <div class = "comment-genre">タイトル：<%=@question.title%></div>
   </div>
 
-  <% if  @user.id == current_user.id%>
+  <% if  user_signed_in? && @user.id == current_user.id%>
   <% binding.pry%>
     <div class = "edit-area">
       <%=link_to "へんしゅう",edit_question_path(params[:question_id]), class: "edit",  id: "destroy"%> 
