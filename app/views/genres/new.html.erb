@@ -1,0 +1,21 @@
+<div class = "body-s">  
+  <div class = "sub-title">ジャンルを作る</div>
+  <%= form_with model:@genre, local: true do |f|%>
+  <div class = "genres">
+    <%= f.text_field :name, placeholder: "新しいジャンルの名前", class: "genre" %>
+    
+  </div>
+  <div class = "submits">
+    <%= f.submit "追加", class: "submit"%>
+    <%=link_to "もどる",new_question_path, class: "submit"%>
+  </div>
+  <% end %>
+  <div class = "genre-index-area">
+    <div class = "genre-index-header">ジャンル一覧</div>
+ 
+    <% @genres.each do |genre|%>
+    <div class = "genre-index"><%= genre.name%>：問題数：<%= Question.where(genre_id: genre.id).count%></div>
+    
+    <%end%>
+  </div>
+</div>

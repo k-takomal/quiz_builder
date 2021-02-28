@@ -1,0 +1,85 @@
+  <div class ="body-s">
+
+  <div class = "sub-title">クイズの内容とコメント</div>
+  
+  <div class= "comment-genres">
+    <div class = "comment-genre">作者：<%=@user.nickname%></div>
+    <div class = "comment-genre">ジャンル：<%=@genre.name%></div>
+    <div class = "comment-genre">タイトル：<%=@question.title%></div>
+  </div>
+
+  <% if  @user.id == current_user.id%>
+  <% binding.pry%>
+    <div class = "edit-area">
+      <%=link_to "へんしゅう",edit_question_path(params[:question_id]), class: "edit",  id: "destroy"%> 
+      <%=link_to "さくじょ",question_path(params[:question_id]),method: :delete,data: { confirm: 'クイズを消してもいい？' }, class: "edit" %> 
+    </div>
+  <% end %>
+
+  <div class = "question-write">問題<br><%=@question.question%></div>
+  <div class = "answers-write">
+  <div class = "answer-write"  >
+    <img src = "/assets/maru" class="maru">
+    <%=@question.correct_ans%>
+    </div>
+  <div class = "answer-write"  >
+    <img src = "/assets/batu" class="batu">
+    <%=@question.wrong_ans_1%>
+    </div>
+  <div class = "answer-write"  >
+    <img src = "/assets/batu" class="batu">
+    <%=@question.wrong_ans_2%>
+    </div>
+  
+  </div>
+
+
+  <div class = "comment-area">
+    <div class = "comment-header">クイズのかんそう</div>
+
+    <% @comments.each do |comment|%>
+      <% if  @question.user_id == comment.user_id %>
+
+        <div class = "l-comment-area">
+          <div class = "user-name"><%=  User.find(comment.user_id).nickname%></div>
+          <div class = "user-comment"><%= comment.text %></div>
+          <% if user_signed_in? && comment.user_id == current_user.id%>
+            <div class = "comment-edit-area">
+              <%= link_to "へんしゅう", edit_question_comment_path(@question.id, comment.id),class: "comment-edit" %>
+              <%=link_to "さくじょ",question_comment_path(@question.id,comment.id),method: :delete,data: { confirm: 'コメントを消してもいい？' }, class: "comment-edit" %> 
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class = "r-comment-area">
+        
+        <div class = "another-user-name"><%=  User.find(comment.user_id).nickname%></div>
+          <div class = "user-comment"><%= comment.text %></div>
+          <% if user_signed_in? && comment.user_id == current_user.id%>
+            <div class = "comment-edit-area">
+              <%= link_to "へんしゅう", edit_question_comment_path(@question.id, comment.id),class: "comment-edit" %>
+              <%=link_to "さくじょ",question_comment_path(@question.id,comment.id),method: :delete,data: { confirm: 'コメントを消してもいい？' }, class: "comment-edit" %> 
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    
+  </div>
+
+<% if user_signed_in? %>
+  <%= form_with model:[@question,@comment_new] do |f| %>
+  <%= render "/questions/error_messages", model: f.object %>
+  <div class = "midashi">コメント入力</div>
+    <%= f.text_area :text, placeholder:"コメントを入力してください", class: "comment" %>
+    <div class = "submits">
+      <%= f.submit "コメントする", class: "submit" %>
+          <%=link_to "もどる",root_path, class: "submit"%>
+    </div>
+  <% end %>
+<% else %>
+  <div class = "submits">
+  <%=link_to "もどる",root_path, class: "submit"%>
+  </div>
+<% end %>
+</div>

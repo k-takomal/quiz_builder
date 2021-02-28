@@ -1,0 +1,15 @@
+<div class = "body-s">
+
+  <div class = "sub-title">クイズ作成</div>
+
+  <div class = "genres"> 
+    <%= link_to "#{current_user.nickname}さんの作ったクイズ", user_path(current_user.id),class: "genre"%>
+  </div>
+
+  <%= form_with(model: @question_comment, url: questions_path, local: true) do |question| %>
+
+    <%= render "error_messages", model: @question_comment %>
+    <%= render partial:"new_edit", locals:{question: question}%>
+    
+  <% end %>
+</div>

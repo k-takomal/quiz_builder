@@ -1,0 +1,12 @@
+<div class = "body-s">
+<div class = "sub-title">コメントへんしゅう</div>
+
+<%= form_with model:[@question,@comment] do |f| %>
+  <div class = "midashi">コメント入力</div>
+    <%= f.text_area :text, placeholder:"コメントを入力してください", class: "comment" %>
+    <div class = "submits">
+      <%= f.submit "コメントする", class: "submit" %>
+          <%=link_to "もどる",question_comments_path(params[:question_id]), class: "submit"%>
+    </div>
+  <% end %>
+  </div>

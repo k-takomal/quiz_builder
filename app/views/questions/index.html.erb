@@ -1,0 +1,17 @@
+<div class = "body-s">
+  <div class = "sub-title">みんなのクイズ</div>
+    <div class = "genre-index-area">
+      <div class = "genre-index-header">
+      総ジャンル数<%= @genre.count %>種類
+      </div>
+
+        <% @genre.each do |genre|%>
+          <div class = "genre-index"><%= link_to "#{genre.name}：#{@question.where(genre_id: genre.id).count}問",question_path(genre.id) %> </div>
+        <%end%>
+        
+    </div>
+    <div class = "submits">
+    
+      <%=link_to "もどる",root_path, class: "submit"%>
+    </div>
+</div>

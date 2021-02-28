@@ -22,8 +22,8 @@
 | correct_ans | string | null: false |
 | wrong_1 | string | null: false |
 | wrong_2 | string | null: false |
-| user | string | null: false |
-| genre | string | null: false |
+| user | references | null: false, foreign_key: true|
+| genre | references | null: false, foreign_key: true |
 
 ### association
 - belongs_to :user
@@ -36,8 +36,8 @@
 | column | type | options |
 | - | - | - |
 | text | text | null: false |
-| user | string | null: false |
-| question | string | null: false |
+| user | references | null: false, foreign_key: true |
+| question | references | null: false,foreign_key: true |
 
 ### association
 - belongs_to :user

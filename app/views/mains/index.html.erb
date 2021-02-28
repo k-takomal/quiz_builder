@@ -1,0 +1,28 @@
+    <div class = "body-s">
+    
+    <img src="/assets/title3.png" class ="title-image">
+
+  
+    <% if user_signed_in? %>
+      <div class = "user-login">
+        <%= link_to 'ログアウト',destroy_user_session_path , method: :delete, class: "login"%>
+        <%= link_to "#{current_user.nickname}さんの作ったクイズ", user_path(current_user.id),class: "login"%>
+      </div>
+    <% else %>
+      <div class = "user-login">
+        <div class = "login"><%= link_to '新規登録', new_user_registration_path %></div>
+        <div class = "login"><%= link_to 'ログイン', new_user_session_path %></div>
+      </div>
+    <% end %> 
+
+    <div class = "category-area">
+    
+      <div class ="category"><%= link_to "クイズであそぶ", selects_path, class: "category-write" %></div>
+        <% if user_signed_in? %>
+          <div class ="category"><%= link_to "クイズをつくる", new_question_path, class: "category-write" %></div>
+        <% end %>
+      <div class ="category"><%= link_to "クイズいちらん", questions_path, class: "category-write" %></div>
+    </div>
+    
+</div>
+

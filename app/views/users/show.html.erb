@@ -1,0 +1,19 @@
+<div class = "body-s">
+  <div class = "sub-title"><%= @user.nickname%>さんの<br>　作ったクイズ一覧</div>
+  <div class = "genre-index-area">
+    <div class = "genre-index-header">総問題数
+    <%= @question.where(user_id: @user.id).count %>問</div>
+
+    <% @question.where(user_id: @user.id).each do |question|%>
+      
+      <div class = "genre-index"><%= link_to "#{Genre.find(question.genre_id).name}：#{question.title}", question_comments_path(question.id) %> </div>
+      
+    <%end%>
+      
+      
+  </div>
+  <div class = "submits">
+  
+     <%=link_to "もどる",root_path, class: "submit"%>
+  </div>
+</div>

@@ -1,0 +1,614 @@
+ /* @font-face { 
+    font-family: “chihaya_tyoke”;
+    src: font-url("/assets/chihaya_tyoke.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}  */
+*{
+  box-sizing : border-box;
+  font-family: 'Yusei Magic', sans-serif;
+}
+body{
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%; 
+  min-width: 100vh ;
+  background-color: rgb(7, 104, 7);
+  /* justify-content: flex-end; */
+
+}
+
+.body-l{
+  min-height: 100vh;
+  height: 100%;
+  width: calc(100vw - 120px); 
+  
+  
+}
+
+/* クイズ画面 */
+.field{
+  position:relative;
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
+  z-index: 70;
+}
+.question_area{
+  width: 95%;
+  height: 50vh;
+  background-color: white;
+  box-shadow: 10px 10px rgba(43, 43, 43, 0.8);
+  border-radius: 0 30px 0 0 ;
+  margin:0 20px 30px;
+  position: relative;
+}
+
+.count-down{
+  position:absolute;
+  background-color: white;
+  width: 95%;
+  height: 100%;
+  font-size:250px;
+  text-align: center;
+  color:tomato;
+}
+
+.ans-image{
+  width:80%;
+  max-width: 500px;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  
+  margin:auto;
+  
+}
+.finish-area{
+z-index: 90;
+
+/* border: solid 1px black; */
+}
+.finish-image{
+  position: absolute;
+  background-color:rgb(7, 104, 7);
+  width:100%;
+  height:100%;
+  z-index: 100;
+}
+.finish-text-area{
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row-reverse; */ 
+  /* border: solid 1px black; */
+  width:30%;
+  height:40%;
+  position:absolute;
+  z-index: 110;
+  top:38%;
+  left:37%;
+  text-align: center; 
+  font-size: 3.3vh;
+}
+  .finish-text-title{
+    font-size: 3.35vh;
+    color:green;
+  }
+
+  .finish-text-score{
+    color:red;
+  }
+
+.finish-text{
+  color:blue;;
+  text-decoration: none;
+  /* cursor:pointer; */
+}
+
+/* .finish-text:hover{color:blueviolet} */
+
+.finish-text-return{
+  text-decoration: none;
+}
+
+.shadow{
+  width:30px;
+  height:30px;
+  border:none;
+  border-radius: 0 30px 0 0;
+  background-color: rgb(214, 214, 214);
+  position: absolute;
+  top:0px;
+  right:0px;
+}
+.question-header{
+  display: flex;
+  padding:15px
+}
+.number{
+  font-size: 50px;
+  color:black;
+  margin:0 15px;
+  /* color:aliceblue; */
+}
+.timer{
+  
+  margin-top: auto;
+  font-size: 25px;
+
+}
+.question{
+  font-size: 30px ;
+  color:black;
+  /* color:aliceblue; */
+  justify-content: space-around;
+  margin:40px 50px;
+}
+
+.answers{
+  width: 100%;
+  list-style: none;
+  margin: 50px 0;
+  display:flex;
+  /* justify-content:space-between; */
+  word-break: keep-all;
+}
+
+.answer{
+  width: 25vw;
+  height: auto;
+  /* max-height: 25vh; */
+  /* overflow: scroll; */
+  padding: 10px;
+  background-color: white;
+  border:ridge 5px gray;
+  margin:20px auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+.footer{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+
+
+}
+.score, .copy_light{
+  margin:10px;
+  font-size:25px;
+  color:aliceblue;
+}
+/* クイズ画面 */
+
+
+/* メイン画面 */
+.title-image{
+  /* background-color: white; */
+  width: 100%;
+  height: 40vh;
+  margin: 10px auto 20px;
+}
+
+.user-login{
+  display:flex;
+  justify-content: center;
+  width:100%;
+}
+.login{
+  text-decoration: none;
+  color:black;
+  width:fit-content;
+  font-size: 25px;
+  padding:10px ;
+  background-color: white;
+  border:ridge 5px gray;
+  margin:0 30px;
+
+
+
+}
+.category-area{
+  width:fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  padding:30px auto;
+
+}
+.category{
+  color:black;
+  
+  font-size: 50px;
+  width:fit-content;
+  padding: 10px;
+  background-color: white;
+  border:ridge 5px gray;
+  margin:20px auto 0;
+  text-align: center;
+  
+}
+.category-write{
+  text-decoration: none;
+  color:black;
+}
+
+select{
+  border:none;
+}
+
+/* メイン画面 */
+
+
+/* クイズ作成画面 */
+
+.sub-title{
+  font-size: 50px;
+  color: white;
+  margin: 0 15px;
+}
+
+.midashi{
+  padding-left: 20px;
+  font-size: 30px;
+  color:white;
+}
+
+.genres, .answers-write{
+  width:100%;
+  display: flex;
+  margin: 0 0 35px ;
+}
+.answers-write{
+
+  margin-top: 5px;
+}
+.genre{
+
+  text-decoration: none;
+  color:black;
+  width:fit-content;
+  height:fit-content ;
+  font-size: 25px;
+  padding:10px ;
+  background-color: white;
+  border:ridge 5px gray;
+  margin: 0 20px;
+  /* text-align: center; */
+}
+
+.question-write,.comment {
+  width:90%;
+  height: 40vh;
+  background-color: white;
+  border:ridge 5px gray;
+  font-size: 30px ;
+  color:black;
+  margin:0 20px 0;
+ 
+}
+
+
+.answers-write{
+  
+  width: 100%;
+  padding-left: 15px;
+}
+
+.answer-write{
+  background-color: white;
+  font-size: 25px;
+  border:ridge 5px gray;
+  width:25%;
+  margin-left: 5px;
+  margin-right:25px;
+}
+
+.comment{
+  height: 20vh;
+}
+.submits{
+  width:100%;
+  display: flex;
+  margin: 30px 0 0;
+  justify-content: space-around;
+}
+.submit{
+  text-decoration: none;
+  color:black;
+  width: 280px;
+  font-size: 25px;
+  padding:10px ;
+  background-color: white;
+  border:ridge 5px gray;
+  text-align: center;
+  
+}
+
+.maru{
+  width:50px;
+}
+
+.batu{
+  width:50px;
+}
+/* クイズ作成画面 */
+
+
+/* コメント一覧 */
+
+.comment-genres{
+  width:auto;
+  display: flex;
+  margin: 30px 30px 5px;
+}
+.comment-genre{
+  color: white;
+  width: auto;
+  font-size: 25px;
+  padding:10px ;
+  margin-right:15px;
+
+}
+
+.comment-area{
+  background-color: skyblue;
+  border:ridge 5px gray;
+  margin:20px ;
+  padding: 15px;
+  width:auto;
+  height:40vh;
+  overflow-y: scroll;
+}
+.comment-header{
+  font-size: 25px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.l-comment-area{
+  width: 60%;
+  height: fit-content;
+  margin-bottom: 30px;
+  margin-right: auto;
+}
+
+.r-comment-area{
+  margin-left: auto;
+  width: 60%;
+  height: fit-content;
+}
+
+.user-name, .another-user-name{
+  font-size: 20px;
+}
+
+.another-user-name{
+  width: fit-content;
+  padding-right: 10px;
+  margin-left: auto;
+}
+
+.user-comment{
+  background-color:  white;
+  width: 100%;
+  border-radius: 30px;
+  padding:20px;
+  height: auto;
+  
+}
+
+.comment-edit-area{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comment-edit{
+  width: fit-content;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+/* コメント一覧 */
+
+
+/* ジャンルを作る */
+
+.genre-index-area{
+  background-color: skyblue;
+  border:ridge 5px gray;
+  margin:30px auto;
+  padding: 15px 30px;
+  width:fit-content;
+  height:auto;
+}
+
+.genre-index-header{
+  width:fit-content;
+  font-size: 40px;
+  margin: 15px auto;
+}
+
+.genre-index{
+  margin: 15px auto 0;
+  width:fit-content;
+  color:black;
+  font-size: 30px;
+  
+}
+
+.edit-area{
+display: flex;
+justify-content:center;
+width: 100%;
+height:fit-content;
+padding-bottom: 30px;
+}
+.edit{
+  font-size: 40px;
+  color:black;
+  text-decoration: none;
+  margin: 0 30px;
+  background-color: white;
+  border:ridge 5px gray;
+  padding: 0 20px;
+
+}
+/* ジャンルを作る */
+
+
+/* ログイン画面 */
+
+.sign_in_area{
+  padding: 0 15px;
+  
+}
+
+.form-text{
+  display: block;
+}
+
+.form-field{
+  color:white;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.login-form{
+  border:ridge 5px gray;
+  width:40%;
+  height: 50px;
+}
+
+.login-form-l{
+  border:ridge 5px gray;
+  width:50%;
+  height: 50px;
+}
+
+.login_submits{
+  background-color:white;
+  border:ridge 5px gray;
+  padding: 3px;
+  color:black;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+/* ログイン画面 */
+
+
+/* エラーメッセージ */
+.error_messages_area{
+padding:15px;
+}
+
+.error_message{
+  color:white;
+}
+/* エラーメッセージ */
+
+/* カレンダー */
+
+.calender-area{
+   /* background-color: rgb(7, 104, 7);  */
+  /* border:solid 5px black;  */
+  width:fit-content; 
+  min-height: 100vh;
+  height: auto; 
+  padding-top: 5vh ;
+  margin:0 0 auto 0;
+text-align: center;
+}
+
+.calender-mark{
+  margin-bottom: 20px;
+  font-size: 40px;
+  color:white;
+}
+.calender-num{
+  margin-bottom: 10px;
+  font-size: 40px;
+  color:white;
+}
+.calender-nittyoku{
+  margin: 0 auto 20px;
+  font-size: 50px;
+  width:fit-content;
+  height: fit-content;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color:white;
+}
+
+/* カレンダー */
+
+
+
+
+/* ヘッダー */
+.header-area{
+  display: flex;
+  width:100%;
+  height: 10vh;
+  align-items: flex-end;
+  padding-left:30px;
+}
+.header-login{
+  display: flex;
+  width:50%;
+  height:fit-content;
+}
+.header{
+  text-decoration: none;
+  color:black;
+  padding:5px 5px ;
+  background-color: white;
+  border:ridge 5px gray;
+  font-size: 20px;;
+  /* text-align: center; */
+  margin-left: 15px;
+}
+.header-image{
+
+  /* background-color: white; */
+  width:80%;
+  height: 10vh;
+}
+/* ヘッダー */
+
+
+/* ジャンルセレクト */
+
+.genre-area{
+  width:100%;
+  height:fit-content;
+  /* background-color: white; */
+}
+
+.select-genre-top{
+  width: fit-content;
+  margin: 30px 20px 0;
+  font-size: 35px;
+  color:rgb(240, 133, 231);
+}
+
+.select-cell{
+  margin:20px ;
+}
+.select-genre{
+  text-decoration: none;
+  font-size: 3.3vw;
+  color:white;
+}
+
+.select-genre-caution{
+  font-size: 20px;
+  color:rgb(177, 134, 18);
+}
+/* ジャンルセレクト */

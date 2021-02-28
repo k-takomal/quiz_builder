@@ -1,0 +1,17 @@
+
+  <div class = header-area>
+    <div class =header-login>
+    <%=link_to image_tag(src= "/assets/header-text.png", class: "header-image"),root_path%></div>
+
+    <% if user_signed_in?%>
+      <%= link_to "作ったクイズ", user_path(current_user.id),class: "header"%>
+      <%= link_to 'ログアウト',destroy_user_session_path , method: :delete, class: "header"%>
+      
+
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path ,class:"header"%>
+      <%= link_to '新規登録', new_user_registration_path ,class:"header"%>
+    <% end %>
+    </div>
+
+    
