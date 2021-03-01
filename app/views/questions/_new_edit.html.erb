@@ -13,11 +13,11 @@
     <%= question.text_area :question, placeholder:"もんだい", class: "question-write" %>
 
     <div class = "answers-write">
-     <img src = "/assets/maru" class="maru">
+    <%= image_tag "maru.png", class:"maru" %>
       <%= question.text_field :correct_ans, placeholder:"せいかい", maxlength:"10", class: "answer-write" %>
-       <img src = "/assets/batu" class="batu">
+       <%=image_tag "batu.png", class: "batu"%>
       <%= question.text_field :wrong_ans_1, placeholder:"まちがい１", maxlength:"10", class: "answer-write" %>
-       <img src = "/assets/batu" class="batu">
+       <%=image_tag "batu.png", class: "batu"%>
       <%= question.text_field :wrong_ans_2, placeholder:"まちがい２", maxlength:"10", class: "answer-write" %>
     </div>
 <div class = "midashi">コメント</div>

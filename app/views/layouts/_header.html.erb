@@ -1,8 +1,8 @@
 
   <div class = header-area>
     <div class =header-login>
-    <%=link_to image_tag(src= "/assets/header-text.png", class: "header-image"),root_path%></div>
-
+    <%=link_to image_tag( "header-text.png", class: "header-image"),root_path%></div>
+    
     <% if user_signed_in?%>
       <%= link_to "作ったクイズ", user_path(current_user.id),class: "header"%>
       <%= link_to 'ログアウト',destroy_user_session_path , method: :delete, class: "header"%>
