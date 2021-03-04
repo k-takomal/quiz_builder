@@ -3,7 +3,7 @@ function quizApp(){
   let quizIndex= 0 ;
   
   const $button = document.getElementsByClassName('answer');
-  const $finish_text = document.getElementsByClassName('finish-text');
+  const $finish_text = document.getElementsByClassName("finish-text");
  
   
   
@@ -17,7 +17,7 @@ function quizApp(){
    
  //クイズの配列をシャッフル
   
-
+console.log(gon.question)
   
 //クイズの問題
   const setQuiz=() => {
@@ -149,8 +149,17 @@ function quizApp(){
         let currentTime = Date.now();
         const diff = currentTime - oldTime;
         const diffSec = totalTime - diff;
-        let text = "残り " + Math.floor( diffSec / 1000 )+ " 秒";
-        
+        // const lestTime = Math.floor( diffSec / 1000 );
+        let text = "残り " + (diffSec/1000 + 1).toFixed(2) ;
+      //３秒前に赤くなる
+        if (diffSec < 2999){
+          document.querySelector("#timer").setAttribute("style","color:red;")
+        }
+        if (diffSec > 2999){
+          document.querySelector("#timer").removeAttribute("style","color:red;")
+        }
+      //３秒前に赤くなる
+
         if (diffSec <= 0){
           clearInterval(timeId);
           //時間切れ画像表示
@@ -177,10 +186,24 @@ function quizApp(){
             }
             setTimeout(next,1000)
           }else{
-              //終了画面の表示
-            const end = ()=>{
-              const finish = document.getElementById("finish-area");
-              finish.removeAttribute("style","display:none;")
+          //終了画面の表示
+          function end() {
+            const smallDevice = window.matchMedia("(min-width: 415px)");
+            function handleDeviceChange(e) {
+              if (e.matches){
+                const finish = document.getElementById("finish");
+                finish.removeAttribute("style","display:none;");
+              }else{
+                const finish = document.getElementById("finish_keitai");
+                finish.removeAttribute("style","display:none;");
+              };
+            };
+            handleDeviceChange(smallDevice);
+            console.log(gon.question);
+
+            const finish = document.getElementById("finish-area");
+                finish.removeAttribute("style","display:none;");
+
               
               document.getElementById("score").innerHTML = "５問中" + total + "問せいかい";
 
@@ -221,11 +244,6 @@ function quizApp(){
 
           }
         }
-
-        // //時間切れで問題が終わった時
-        // if (diffSec <= 0 && quizIndex == 5){
-
-        // }
 
         //選択肢がクリックされたらタイマーをクリアーする
         function clickAns(){
@@ -310,9 +328,22 @@ function quizApp(){
           // setQuiz();
         } else {
           //終了画面の表示
-            const end = ()=>{
+            function end() {
+              const smallDevice = window.matchMedia("(min-width: 415px)");
+              function handleDeviceChange(e) {
+                if (e.matches){
+                  const finish = document.getElementById("finish");
+                  finish.removeAttribute("style","display:none;");
+                }else{
+                  const finish = document.getElementById("finish_keitai");
+                  finish.removeAttribute("style","display:none;");
+                };
+              };
+              handleDeviceChange(smallDevice);
+              console.log(gon.question);
+
               const finish = document.getElementById("finish-area");
-              finish.removeAttribute("style","display:none;")
+                  finish.removeAttribute("style","display:none;");
               
               document.getElementById("score").innerHTML = "５問中" + total + "問せいかい";
 

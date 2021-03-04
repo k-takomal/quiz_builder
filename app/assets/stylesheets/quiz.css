@@ -13,8 +13,8 @@ body{
   height: 100%;
   min-height: 100vh;
   max-width: 1030px;
-  width: 100%; 
-  min-width: 815vh ;
+  width: 100vw; 
+  min-width: 815px;
   background-color: rgb(7, 104, 7);
   /* justify-content: flex-end; */
 
@@ -40,10 +40,11 @@ body{
   width: 95%;
   height: 50vh;
   background-color: white;
-  box-shadow: 10px 10px rgba(43, 43, 43, 0.8);
-  border-radius: 0 30px 0 0 ;
+  /* box-shadow: 10px 10px rgba(43, 43, 43, 0.8); */
+  /* border-radius: 0 30px 0 0 ; */
   margin:0 20px 30px;
   position: relative;
+  overflow-y: scroll;
 }
 
 .count-down{
@@ -57,6 +58,7 @@ body{
 }
 
 .ans-image{
+  z-index: 200;
   width:80%;
   max-width: 500px;
   position: absolute;
@@ -75,7 +77,14 @@ z-index: 90;
 .finish-image{
   position: absolute;
   background-color:rgb(7, 104, 7);
-  width:100%;
+  width:100vw;
+  height:100%;
+  z-index: 100;
+}
+.finish-keitai-image{
+  position: absolute;
+  background-color:rgb(7, 104, 7);
+  width:100vw;
   height:100%;
   z-index: 100;
 }
@@ -89,7 +98,7 @@ z-index: 90;
   position:absolute;
   z-index: 110;
   top:38%;
-  left:37%;
+  left:44%;
   text-align: center; 
   font-size: 3.3vh;
 }
@@ -114,7 +123,7 @@ z-index: 90;
   text-decoration: none;
 }
 
-.shadow{
+/* .shadow{
   width:30px;
   height:30px;
   border:none;
@@ -123,7 +132,7 @@ z-index: 90;
   position: absolute;
   top:0px;
   right:0px;
-}
+} */
 .question-header{
   display: flex;
   padding:15px
@@ -134,12 +143,19 @@ z-index: 90;
   margin:0 15px;
   /* color:aliceblue; */
 }
+.timer-area{
+  display:flex;
+  /* flex-direction: column; */
+  width: fit-content;
+  min-height: fit-content;
+  border: solid 1px black;
+}
+
 .timer{
-  
   margin-top: auto;
   font-size: 25px;
-
 }
+
 .question{
   font-size: 30px ;
   color:black;
@@ -289,7 +305,7 @@ select{
   font-size: 30px ;
   color:black;
   margin:0 20px 0;
- 
+  overflow-y: scroll;
 }
 
 
@@ -299,6 +315,18 @@ select{
   padding-left: 15px;
 }
 
+.answer-area{
+  width: 33%;
+  display: flex;
+  margin-right: 5px;
+}
+.form-answer-write{
+  background-color: white;
+  font-size: 25px;
+  width:calc(100% - 50px);
+  border:ridge 5px gray;
+  padding: 10px;
+}
 .answer-write{
   background-color: white;
   font-size: 25px;
@@ -314,7 +342,7 @@ select{
 .submits{
   width:100%;
   display: flex;
-  margin: 30px 0 0;
+  margin: 30px 0 10px;
   justify-content: space-around;
 }
 .submit{
@@ -421,11 +449,12 @@ select{
 /* ジャンルを作る */
 
 .genre-index-area{
+text-align: center;
   background-color: skyblue;
   border:ridge 5px gray;
   margin:30px auto;
-  padding: 15px 30px;
-  width:fit-content;
+  padding: 15px 0px;
+  width:50%;
   height:auto;
 }
 
@@ -440,7 +469,7 @@ select{
   width:fit-content;
   color:black;
   font-size: 30px;
-  
+  word-break: break-word
 }
 
 .edit-area{
@@ -599,18 +628,43 @@ text-align: center;
   color:rgb(240, 133, 231);
 }
 
-.select-cell{
-  margin:20px ;
+.select-cell {
+  width: fit-content;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: ridge 5px gray;
+  margin: 20px;
+  background-color: white;
+  word-break: keep-all;
 }
+
+.no-select-cell{
+  padding: 0 10px;
+  width: fit-content;
+  border:ridge 5px gray;
+  font-size: 20px;
+  margin: 20px;
+  background-color: rgb(177, 177, 177);
+  word-break: keep-all
+}
+.select-cell:hover{
+  background-color: lightskyblue;
+}
+
+
 .select-genre{
   text-decoration: none;
-  font-size: 3.3vw;
-  color:white;
+  font-size: 20px;
+  /* color:white; */
+  word-break: keep-all
 }
 
 .select-genre-caution{
   font-size: 20px;
-  color:rgb(177, 134, 18);
+  color:rgb(255, 214, 102);
+  word-break: keep-all
 }
 /* ジャンルセレクト */
 
@@ -649,7 +703,318 @@ text-align: center;
 }
  /* タブレット端末*/
  /* 携帯電話端末*/
-/* @media (max-width: 599px){
+ @media (max-width: 414px){
+  body{
+  display: flex;
+  height: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  width: 100vw; 
+  min-width: 100%;
+  background-color: rgb(7, 104, 7);
+  /* justify-content: flex-end; */
+  }
+
+
+  .user-login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+  .login {
+    text-decoration: none;
+    color: black;
+    width: fit-content;
+    font-size: 25px;
+    padding: 5px 10px;
+    background-color: white;
+    border: ridge 5px gray;
+    margin: 5px auto;
+}
+
+  .category-area {
+    width: 100%;
+    height: fit-content;
+    
+    
+}
+
+.category {
+  color: black;
+  font-size: 40px;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border: ridge 5px gray;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.genres{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 35px;
+}
+
+.genre {
+  text-decoration: none;
+  color: black;
+  width: fit-content;
+  height: fit-content;
+  font-size: 23px;
+  padding: 5px 10px;
+  background-color: white;
+  border: ridge 5px gray;
+  margin: 10px 20px;
+  white-space: nowrap;
+}
+.answers-write{
+  display:flex;
+  flex-direction: column;
+}
+.answer-area{
+display:block;
+}
+
+.answer-write {
+  background-color: white;
+  font-size: 25px;
+  border: ridge 5px gray;
+  width: fit-content;
+  min-width: 65%;
+  margin: 5px;
+  overflow: scroll;
+}
+
+.submit {
+  text-decoration: none;
+  color: black;
+  width: fit-content;
+  font-size: 25px;
+  padding: 10px;
+  background-color: white;
+  border: ridge 5px gray;
+  text-align: center;
+}
+
+.header-area {
+  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height:fit-content;
+  align-items:flex-start;
+  padding-left: 10px;
+}
+
+.header-login {
+  /* display: flex; */
+  width: 100%;
+  /* height: fit-content; */
+}
+
+.s-header-login{
+  width:100%;
+}
+
+.header-image {
+  width: 100%;
+  height: 10vh;
+}
+
+.header {
+  text-decoration: none;
+  color: black;
+  padding: 5px 5px;
+  background-color: white;
+  border: ridge 5px gray;
+  font-size: 20px;
+  /* text-align: center; */
+  margin:10px 5px;
+}
+
+.sub-title {
+  font-size: 42px;
+  color: white;
+  margin: 0 15px;
+  word-break: keep-all;
+}
+
+.genre-index-header {
+  text-align: center;
+  width: fit-content;
+  font-size: 40px;
+  margin: 15px auto;
+  word-break: keep-all;
+}
+
+.genre-index-area{
+  width:100%;
+}
+
+.comment-genres {
+  display:flex;
+  flex-direction: column;
+  width: auto;
+  display: flex;
+  margin: 30px 10px 5px;
+}
+
+.edit-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 30px;
+}
+
+.edit {
+  font-size: 40px;
+  color: black;
+  text-decoration: none;
+  margin: 10px;
+  background-color: white;
+  border: ridge 5px gray;
+  padding: 0 10px;
+}
+
+.user-comment {
+  background-color: white;
+  width: 100%;
+  border-radius: 30px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+.comment-edit-area {
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  padding-left: 43px;
+  /* justify-content: flex-end; */
+}
+
+.genre-index {
+  margin: 15px auto 0;
+  width: fit-content;
+  color: black;
+  font-size: 30px;
+  word-break: keep-all;
+}
+
+.finish-image {
+  position: absolute;
+  background-color: rgb(7, 104, 7);
+  width: 100vw;
+  height: 100%;
+  z-index: 100;
+}
+
+.finish-text-area {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: 40%;
+  position: absolute;
+  z-index: 110;
+  top: 38%;
+  left: 12%;
+  text-align: center;
+  font-size: 14px;
+  word-break: keep-all;
 
 }
- 携帯電話端末 */ 
+
+.finish-text-title {
+  font-size: 20px;
+  color: green;
+  word-break: keep-all;
+}
+
+.ans-image {
+  width: 140%;
+  max-width: 500px;
+  position: absolute;
+  top: 43px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.question-header {
+  display: flex;
+
+  flex-direction: column;
+  padding: 15px;
+}
+
+.number {
+  font-size: 50px;
+  color: black;
+  margin: 0;
+  /* color: aliceblue; */
+}
+
+.question {
+  font-size: 30px;
+  color: black;
+  /* color: aliceblue; */
+  justify-content: space-around;
+  margin: 0 10px;
+  overflow-y: scroll;
+  overflow-wrap:break-word;
+  word-break:keep-all;
+}
+
+.answers {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* word-break: keep-all; */
+}
+
+.answer {
+  width: 50vw;
+  padding: 10px;
+  background-color: white;
+  border: ridge 5px gray;
+  margin: 5px 20px;
+}
+
+.select-cell {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: ridge 5px gray;
+  margin: 10px;
+  background-color: white;
+  word-break: keep-all;
+}
+
+.no-select-cell{
+  padding: 0 10px;
+  width: 100%;
+  margin: 0;
+  border:ridge 5px gray;
+  margin: 10px;
+  background-color: rgb(177, 177, 177);
+  word-break: keep-all
+}
+
+.select-genre-caution {
+  font-size: 18px;
+  color: rgb(255, 214, 102);
+  word-break: keep-all;
+}
+
+
+
+}
+ /*携帯電話端末 */

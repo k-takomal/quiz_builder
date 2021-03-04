@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   layout 'on_header_no_login'
   def new
     @genre = Genre.new
-    @genres = Genre.all
+    @genres = Genre.order("name")
     @questions = Question.all
     @genre_question = Genre.joins(:questions)
 

@@ -1,5 +1,5 @@
 class JoysController < ApplicationController
-  layout 'no_header'
+  layout 'no_side_no_header'
 def index
   # binding.pry
 @question = Question.where(genre_id: params[:select_id])

@@ -1,9 +1,22 @@
 
 <div class = "body-s">
+  <%= image_tag "good.png", alt: "正解", id: "good_ans", class:"ans-image",style:"display:none;" %>
+  <%= image_tag "no_good.png", alt: "不正解", id: "no_good_ans", class:"ans-image",style:"display:none;" %>
+  <%= image_tag "time_up.png", alt: "じかん切れ", id: "time_up", class:"ans-image",style:"display:none;" %>
+
+<%# PC版 %>
+    <%= image_tag "finish2.png", alt:"おわり", id:  "finish", class:"finish-image" ,style:"display:none;"%>
+<%# PC版 %>
+
+<%# 携帯版 %>
+    <%= image_tag "finish-keitai.png", alt:"おわり", id:  "finish_keitai", class:"finish-keitai-image",style:"display:none;" %> 
+<%# 携帯版 %>
+
+    
 <div class = "finish-area" id = "finish-area" style= "display:none;">
-<%= image_tag "finish.png", alt:"おわり", id:  "finish", class:"finish-image" %>
   <div class = "finish-text-area">
-    <div class = "finish-text-title"><%= @genre.name%>のクイズ</div>
+    <div class = "finish-text-title"><%= @genre.name%></div>
+    <div class = "finish-text-title">のクイズ</div>
     <div class = "finish-text-score" id = "score">５問中００問せいかい</div>
     <div class = "finish-text" >だい１問００</div>
     <div class = "finish-text" >だい２問００</div>
@@ -22,14 +35,12 @@
         <div class = "question-header">
           <div class = "number" id ="number">第００問</div>
           <div class ="timer"></div>
-          <div class ="timer" id ="timer" >タイマー</div>
+          <div class ="timer" id ="timer">タイマー</div>
         </div>
 
         <div class = "question" id = "question" >問題文</div>
         
-        <%= image_tag "good.png", alt: "正解", id: "good_ans", class:"ans-image",style:"display:none;" %>
-        <%= image_tag "no_good.png", alt: "不正解", id: "no_good_ans", class:"ans-image",style:"display:none;" %>
-        <%= image_tag "time_up.png", alt: "じかん切れ", id: "time_up", class:"ans-image",style:"display:none;" %>
+        
       </div>
 
       <div class = answers>

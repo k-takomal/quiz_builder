@@ -1,5 +1,5 @@
 <div class = "body-s">
-  <div class = "sub-title"><%= @user.nickname%>さんの<br>　作ったクイズ一覧</div>
+  <div class = "sub-title"><%= @user.nickname%>さんの　作ったクイズ一覧</div>
   <div class = "genre-index-area">
     <div class = "genre-index-header">総問題数
     <%= @question.where(user_id: @user.id).count %>問</div>

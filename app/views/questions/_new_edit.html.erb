@@ -13,13 +13,20 @@
     <%= question.text_area :question, placeholder:"もんだい", class: "question-write" %>
 
     <div class = "answers-write">
-    <%= image_tag "maru.png", class:"maru" %>
-      <%= question.text_field :correct_ans, placeholder:"せいかい", maxlength:"10", class: "answer-write" %>
+      <div class = "answer-area"> 
+      <%= image_tag "maru.png", class:"maru" %>
+      <%= question.text_field :correct_ans, placeholder:"せいかい", maxlength:"10", class: "form-answer-write" %>
+      </div>
+      <div class = "answer-area"> 
+      <%=image_tag "batu.png", class: "batu"%>
+      <%= question.text_field :wrong_ans_1, placeholder:"まちがい", maxlength:"10", class: "form-answer-write" %>
+      </div>
+      <div class = "answer-area"> 
        <%=image_tag "batu.png", class: "batu"%>
-      <%= question.text_field :wrong_ans_1, placeholder:"まちがい１", maxlength:"10", class: "answer-write" %>
-       <%=image_tag "batu.png", class: "batu"%>
-      <%= question.text_field :wrong_ans_2, placeholder:"まちがい２", maxlength:"10", class: "answer-write" %>
+      <%= question.text_field :wrong_ans_2, placeholder:"まちがい", maxlength:"10", class: "form-answer-write" %>
+      </div>
     </div>
+    
 <div class = "midashi">コメント</div>
     <%= question.text_area :text, placeholder:"コメントを入力してください", class: "comment" %>
     

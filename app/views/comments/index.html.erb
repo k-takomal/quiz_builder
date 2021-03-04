@@ -1,6 +1,6 @@
   <div class ="body-s">
 
-  <div class = "sub-title">クイズの内容とコメント</div>
+  <div class = "sub-title">クイズの内容と コメント</div>
   
   <div class= "comment-genres">
     <div class = "comment-genre">作者：<%=@user.nickname%></div>
@@ -9,7 +9,7 @@
   </div>
 
   <% if  user_signed_in? && @user.id == current_user.id%>
-  <% binding.pry%>
+  
     <div class = "edit-area">
       <%=link_to "へんしゅう",edit_question_path(params[:question_id]), class: "edit",  id: "destroy"%> 
       <%=link_to "さくじょ",question_path(params[:question_id]),method: :delete,data: { confirm: 'クイズを消してもいい？' }, class: "edit" %> 
@@ -74,12 +74,12 @@
     <%= f.text_area :text, placeholder:"コメントを入力してください", class: "comment" %>
     <div class = "submits">
       <%= f.submit "コメントする", class: "submit" %>
-          <%=link_to "もどる",root_path, class: "submit"%>
+          <%=link_to "もどる",question_path(@genre.id), class: "submit"%>
     </div>
   <% end %>
 <% else %>
   <div class = "submits">
-  <%=link_to "もどる",root_path, class: "submit"%>
+  <%=link_to "もどる",question_path(@genre.id), class: "submit"%>
   </div>
 <% end %>
 </div>
