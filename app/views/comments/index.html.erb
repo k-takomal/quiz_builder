@@ -19,17 +19,17 @@
   <div class = "question-write">問題<br><%=@question.question%></div>
   <div class = "answers-write">
   <div class = "answer-write"  >
-    <img src = "/assets/maru" class="maru">
+  <%= image_tag "maru.png", class:"maru" %>
     <%=@question.correct_ans%>
-    </div>
+  </div>
   <div class = "answer-write"  >
-    <img src = "/assets/batu" class="batu">
+    <%= image_tag "batu.png", class:"batu" %>
     <%=@question.wrong_ans_1%>
-    </div>
+  </div>
   <div class = "answer-write"  >
-    <img src = "/assets/batu" class="batu">
+    <%= image_tag "batu.png", class:"batu" %>
     <%=@question.wrong_ans_2%>
-    </div>
+  </div>
   
   </div>
 
