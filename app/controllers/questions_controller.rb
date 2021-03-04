@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   
 
   def index
-    @genre = Genre.all
+    @genre = Genre.order("name")
     @question = Question.all
   end
 
@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
     
     @genre = Genre.find(params[:id])
     @question = Question.where(genre_id: @genre.id)
+    @questions = @question.order("title")
     # @user = User.find(@question.user_id)
   end
 

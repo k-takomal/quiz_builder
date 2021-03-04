@@ -905,7 +905,8 @@ display:block;
   width: fit-content;
   color: black;
   font-size: 30px;
-  word-break: keep-all;
+  /* word-break: keep-all; */
+  /* white-space: normal; */
 }
 
 .finish-image {
@@ -998,6 +999,7 @@ display:block;
   border: ridge 5px gray;
   margin: 10px;
   background-color: white;
+  white-space: normal;
   word-break: keep-all;
 }
 
@@ -1008,7 +1010,8 @@ display:block;
   border:ridge 5px gray;
   margin: 10px;
   background-color: rgb(177, 177, 177);
-  word-break: keep-all
+  word-break: keep-all;
+  white-space: normal;
 }
 
 .select-genre-caution {
