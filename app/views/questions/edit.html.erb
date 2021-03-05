@@ -10,5 +10,10 @@
     <%= render "error_messages", model: @question %>
     <%= render partial:"new_edit", locals:{question: question}%>
     
+    <div class = "submits">
+      <%= question.submit "できあがり",class: "submit" %>
+      <%=link_to "もどる",question_comments_path(params[:id]), class: "submit"%>
+    </div>
   <% end %>
+  
 </div>

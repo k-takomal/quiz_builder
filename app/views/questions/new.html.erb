@@ -11,5 +11,9 @@
     <%= render "error_messages", model: @question_comment %>
     <%= render partial:"new_edit", locals:{question: question}%>
     
+    <div class = "submits">
+      <%= question.submit "できあがり",class: "submit" %>
+      <%=link_to "もどる",root_path, class: "submit"%>
+    </div>
   <% end %>
 </div>

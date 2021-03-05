@@ -4,17 +4,18 @@
       <div class = "select-genre-top">ジャンルを選んでください</div>
 
         <% @genres.each do |genre| %>
-            <% if Question.where(genre_id: genre.id).count >= 5 %>
+            <% if @question.where(genre_id: genre.id).count >= 5 %>
               <div class = "select-cell">
-                  <%= link_to "・#{genre.name}：#{Question.where(genre_id: genre.id).count}問の中から　ランダムで５問出題されます", select_joys_path(genre.id),data: {"turbolinks" => false}, class: "select-genre"%>
+                  <%= link_to "・#{genre.name}：#{@question.where(genre_id: genre.id).count}問の中から　ランダムで５問出題されます", select_joys_path(genre.id),data: {"turbolinks" => false}, class: "select-genre"%>
               </div>
             <% else %>
               <div class = "no-select-cell" >・<%= genre.name%>：
-                <%=Question.where(genre_id: genre.id).count%>問しかないので選べません
+                <%=@question.where(genre_id: genre.id).count%>問しかないので選べません
                 <div class = "select-genre-caution">(問題数が５問以上から遊べます)</div>
                </div>
           <% end %>  
         <% end %>  
+        
         <div class = "submits">
         <%=link_to "もどる",root_path, class: "submit"%>
         </div>

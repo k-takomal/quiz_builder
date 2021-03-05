@@ -205,7 +205,7 @@ console.log(gon.question)
                 finish.removeAttribute("style","display:none;");
 
               
-              document.getElementById("score").innerHTML = "５問中" + total + "問せいかい";
+              document.getElementById("score").innerHTML = total + "問せいかい";
 
               let textIndex = 0;
               let finishTextLength = $finish_text.length;
@@ -345,7 +345,8 @@ console.log(gon.question)
               const finish = document.getElementById("finish-area");
                   finish.removeAttribute("style","display:none;");
               
-              document.getElementById("score").innerHTML = "５問中" + total + "問せいかい";
+              document.getElementById("score").innerHTML = 
+              total + "問せいかい";
 
               let textIndex = 0;
               let finishTextLength = $finish_text.length;
