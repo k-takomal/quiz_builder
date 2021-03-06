@@ -6,7 +6,7 @@
         <% @genres.each do |genre| %>
             <% if @question.where(genre_id: genre.id).count >= 5 %>
               <div class = "select-cell">
-                  <%= link_to "・#{genre.name}：#{@question.where(genre_id: genre.id).count}問の中から　ランダムで５問出題されます", select_joys_path(genre.id),data: {"turbolinks" => false}, class: "select-genre"%>
+                  <%= link_to "・#{genre.name}：#{@question.where(genre_id: genre.id).count}問の中からランダムで５問出題されます", select_joys_path(genre.id),data: {"turbolinks" => false}, class: "select-genre"%>
               </div>
             <% else %>
               <div class = "no-select-cell" >・<%= genre.name%>：

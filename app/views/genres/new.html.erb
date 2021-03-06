@@ -14,8 +14,10 @@
     <div class = "genre-index-header">ジャンル一覧</div>
  
     <% @genres.each do |genre|%>
-    <div class = "genre-index"><%= genre.name%>：問題数：<%= Question.where(genre_id: genre.id).count%></div>
-    
+     <div class = "genres-index">
+    <div class = "genre-index"><%= genre.name%></div>
+    <div class = "quiz-title">問題数：<%= Question.where(genre_id: genre.id).count%></div>
+    </div>
     <%end%>
   </div>
 </div>

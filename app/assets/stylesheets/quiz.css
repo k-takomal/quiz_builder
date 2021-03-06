@@ -8,6 +8,7 @@
   box-sizing : border-box;
   font-family: 'Yusei Magic', sans-serif;
 }
+
 body{
   position: relative;
   display: flex;
@@ -671,7 +672,7 @@ text-align: center;
   font-size: 20px;
   margin: 20px;
   background-color: rgb(177, 177, 177);
-  word-break: keep-all
+  /* word-break: keep-all */
 }
 .select-cell:hover{
   background-color: lightskyblue;
@@ -787,7 +788,7 @@ text-align: center;
 .genre {
   text-decoration: none;
   color: black;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
   font-size: 23px;
   padding: 5px 10px;
@@ -817,12 +818,15 @@ display:block;
 .submit {
   text-decoration: none;
   color: black;
-  width: 200px;
+  width: fit-content;
+  height: fit-content;
   font-size: 25px;
   padding: 10px;
   background-color: white;
   border: ridge 5px gray;
   text-align: center;
+  margin-left: 10px;
+
 }
 
 .header-area {
