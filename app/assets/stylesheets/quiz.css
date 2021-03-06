@@ -97,15 +97,15 @@ z-index: 90;
   flex-direction: column;
   /* flex-direction: row-reverse; */ 
   /* border: solid 1px black; */
-  width: 40%;
+  width: 35%;
   height: 40%;
   position: absolute;
   z-index: 110;
   top: 37%;
   left: 44%;
   text-align: center; 
-  font-size: 3.3vh;
-  overflow: hidden;
+  font-size: 23px;
+  overflow-y: scroll;
 }
   .finish-text-title{
     font-size: 3.35vh;
@@ -345,7 +345,7 @@ select{
   background-color: white;
   font-size: 25px;
   border:ridge 5px gray;
-  width:25%;
+  width:68%;
   margin-left: 5px;
   margin-right:25px;
 }
@@ -738,7 +738,8 @@ text-align: center;
   body{
     position: relative;
   display: flex;
-  height: 100%;
+  min-height: 100%;
+  height: 736px;
   min-height: 100%;
   width: 415px; 
   
