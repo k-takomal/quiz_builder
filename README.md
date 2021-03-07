@@ -28,7 +28,7 @@
 ### association
 - belongs_to :user
 - has_many :comment
-- has_one :genre
+- belongs_to :genre
 
 
 
