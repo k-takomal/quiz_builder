@@ -123,7 +123,8 @@
 
 # 実装した機能についてのGIFと説明
   * タイトル画面
-  https://gyazo.com/9fdef96b069f6d7387e317e5712aee42
+  ![joy](https://user-images.githubusercontent.com/73233613/110701551-a1d60480-8234-11eb-98da-ce31f69d56f9.gif)
+
 実装した機能について、それぞれどのような特徴があるのか列挙しましょう。GIFを添えることで、イメージがしやすくなります。
 <br>
 <br>
