@@ -122,7 +122,8 @@
 <br>
 
 # 実装した機能についてのGIFと説明
-  * タイトル画面<img width="200" alt="title" src="https://gyazo.com/9fdef96b069f6d7387e317e5712aee42">
+  * タイトル画面
+  https://gyazo.com/9fdef96b069f6d7387e317e5712aee42
 実装した機能について、それぞれどのような特徴があるのか列挙しましょう。GIFを添えることで、イメージがしやすくなります。
 <br>
 <br>
@@ -144,6 +145,7 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 <br>
 <br>
 
+# データベース  
 ## usersテーブル
 | column | type | options |
 | - | - | - |
