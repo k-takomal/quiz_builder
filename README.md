@@ -212,7 +212,8 @@
 <br>
 
 # 画面遷移図<br>
-<img width="700" alt="スクリーンショット 2021-03-12 6 24 12" src="https://user-images.githubusercontent.com/73233613/110856949-9e598080-82fb-11eb-8879-5adaf23f312f.png">
+<img width="700" alt="スクリーンショット 2021-03-13 3 19 56" src="https://user-images.githubusercontent.com/73233613/110981889-2c407480-83ab-11eb-84ff-061bd56f7449.png">
+
 <br>
 <br>
 
