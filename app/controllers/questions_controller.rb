@@ -10,8 +10,8 @@ class QuestionsController < ApplicationController
 
 
   def new
-   
     @question_comment = QuestionComment.new
+    @genre = Genre.order("name")
   end
 
 

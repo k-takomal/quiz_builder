@@ -1,7 +1,7 @@
 
     <div class = "midashi">ジャンルせんたく</div>
     <div class = "genres"> 
-      <%= question.collection_select :genre_id, Genre.all,:id,:name, {include_blank:"ジャンルを選んでください"},{class: "genre"} %>
+      <%= question.collection_select :genre_id, @genre,:id,:name, {include_blank:"ジャンルを選んでください"},{class: "genre"} %>
       <%= link_to "ジャンルを作る", new_genre_path , class: "genre"%>
     </div>
    
