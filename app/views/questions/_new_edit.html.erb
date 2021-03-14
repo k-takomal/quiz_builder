@@ -1,4 +1,3 @@
-
     <div class = "midashi">ジャンルせんたく</div>
     <div class = "genres"> 
       <%= question.collection_select :genre_id, @genre,:id,:name, {include_blank:"ジャンルを選んでください"},{class: "genre"} %>

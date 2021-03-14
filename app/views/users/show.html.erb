@@ -7,17 +7,18 @@
 
     <% @user_question.each do |question|%>
       <div class = "genres-index">
-      <div class = "genre-index"><%= link_to "#{Genre.find(question.genre_id).name}", question_comments_path(question.id) %> </div>
+        <div class = "genre-index">
+          <%= link_to "#{Genre.find(question.genre_id).name}", question_comments_path(question.id) %> 
+        </div>
       
-      <div class = "quiz-title"><%= link_to "・#{question.title}", question_comments_path(question.id) %> </div>
+        <div class = "quiz-title">
+          <%= link_to "・#{question.title}", question_comments_path(question.id) %> 
+        </div>
       </div>
-      
     <%end%>
-      
-      
   </div>
-  <div class = "submits">
   
+  <div class = "submits">
      <%=link_to "もどる",root_path, class: "submit"%>
   </div>
 </div>

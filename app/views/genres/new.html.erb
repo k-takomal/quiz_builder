@@ -1,6 +1,7 @@
 <div class = "body-s">  
   <div class = "sub-title">ジャンルを作る</div>
   <%= form_with model:@genre, local: true do |f|%>
+  <%= render "/questions/error_messages", model: @genre %>
   <div class = "genres">
     <%= f.text_field :name, placeholder: "新しいジャンルの名前", class: "genre" %>
      

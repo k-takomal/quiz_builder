@@ -8,17 +8,19 @@
 
       <% @questions.each do |question|%>
         <div class = "genres-index">
-        <div class = "quiz-title"><%= link_to "・#{question.title}", question_comments_path(question.id), style:"width:fit-content;" %></div>
+          <div class = "quiz-title">
+            <%= link_to "・#{question.title}", question_comments_path(question.id), style:"width:fit-content;" %>
+          </div>
 
-        <div class = "genre-index"><%= link_to "#{User.find(question.user_id).nickname}さん",user_path(question.user_id),style:"color:blue;"%></div>
-
+          <div class = "genre-index">
+            <%= link_to "#{User.find(question.user_id).nickname}さん",user_path(question.user_id),style:"color:blue;"%>
+          </div>
         </div>
       <%end%>
         
         
     </div>
     <div class = "submits">
-    
       <%=link_to "もどる",questions_path, class: "submit"%>
     </div>
 </div>

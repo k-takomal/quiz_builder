@@ -5,7 +5,7 @@
       総ジャンル数
       </div>
       <div class = "genre-index-header">
-      <%= @genre.count %>種類
+        <%= @genre.count %>種類
       </div>
 
         <% @genre.each do |genre|%>
@@ -15,10 +15,8 @@
           <div class = "genre-index"><%= link_to "#{@question.where(genre_id: genre.id).count}問",question_path(genre.id) %> </div>
           </div>
         <%end%>
-        
     </div>
     <div class = "submits">
-    
       <%=link_to "もどる",root_path, class: "submit"%>
     </div>
 </div>
