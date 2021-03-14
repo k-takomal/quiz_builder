@@ -222,6 +222,19 @@ z-index: 90;
   margin: 10px auto 20px;
 }
 
+.create_true{
+  background-color: rgb(248, 239, 74);
+  position: absolute;
+  top:100px;
+  left:100px;
+  border:ridge 20px rgb(255, 255, 255);
+  /* border: solid 20px white; */
+  border-radius: 10%;
+  width:500px;
+  
+  
+}
+
 .user-login{
   display:flex;
   justify-content: center;
@@ -231,7 +244,7 @@ z-index: 90;
   text-decoration: none;
   color:black;
   width:fit-content;
-  font-size: 25px;
+  font-size: 24px;
   padding:10px ;
   background-color: white;
   border:ridge 5px gray;
@@ -348,6 +361,7 @@ select{
   width:68%;
   margin-left: 5px;
   margin-right:25px;
+  margin-bottom: 10px;
 }
 
 .comment{
@@ -757,7 +771,7 @@ text-align: center;
     text-decoration: none;
     color: black;
     width: fit-content;
-    font-size: 25px;
+    font-size: 22px;
     padding: 5px 10px;
     background-color: white;
     border: ridge 5px gray;
@@ -1112,5 +1126,15 @@ display:block;
   height: 50px;
   font-size: 30px;
 }
+
+.create_true{
+  
+  top:100px;
+  left:30px;
+  width:300px;
+
+}
+
+
 }
  /*携帯電話端末 */

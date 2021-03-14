@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   layout 'on_header_no_login' ,only: [:new,:edit]
+  layout 'no_header_on_timer' ,only: :create
   before_action :authenticate_user!, only:[:new, :edit]
   
 
@@ -19,7 +20,7 @@ class QuestionsController < ApplicationController
     @question_comment = QuestionComment.new(question_params)
     if @question_comment.valid?
       @question_comment.save
-      redirect_to root_path
+      # redirect_to root_path
     else
       render action: :new
     end
