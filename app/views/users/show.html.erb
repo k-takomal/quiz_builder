@@ -1,9 +1,8 @@
-<div class = "body-s">
   <div class = "sub-title"><%= @user.nickname%>さんの</div>
   <div class = "sub-title">作ったクイズ一覧</div>
-  <div class = "genre-index-area">
     <div class = "genre-index-header">総問題数
     <%= @user_question.count %>問</div>
+  <div class = "genre-index-area">
 
     <% @user_question.each do |question|%>
       <div class = "genres-index">
@@ -17,8 +16,6 @@
       </div>
     <%end%>
   </div>
-  
   <div class = "submits">
      <%=link_to "もどる",root_path, class: "submit"%>
   </div>
-</div>

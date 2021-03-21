@@ -1,5 +1,4 @@
-<div class = "body-s">  
-  <div class = "sub-title">ジャンルを作る</div>
+  <div class = "sub-title">ジャンルをつくる</div>
   <%= form_with model:@genre, local: true do |f|%>
   <%= render "/questions/error_messages", model: @genre %>
   <div class = "genres">
@@ -8,16 +7,17 @@
   </div>
   <div class = "submits">
     <%= f.submit "追加", class: "submit"%>
-    <%=link_to "もどる",new_question_path, class: "submit"%>
+    <div class = "attent">※元の画面に戻るには<br>ブラウザの戻るボタンを使用してください</div>
   </div>
   <% end %>
-  <div class = "genre-index-area">
+  
     <div class = "genre-index-header">ジャンル一覧</div>
  
+  <div class = "genre-index-area">
     <% @genres.each do |genre|%>
      <div class = "genres-index">
-    <div class = "genre-index"><%= genre.name%></div>
-    <div class = "quiz-title">問題数：<%= Question.where(genre_id: genre.id).count%></div>
+      <div class = "genre-index"><%= genre.name%></div>
+      <div class = "quiz-title">問題数：<%= Question.where(genre_id: genre.id).count%></div>
     </div>
     <%end%>
   </div>

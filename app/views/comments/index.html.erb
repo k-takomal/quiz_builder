@@ -1,5 +1,3 @@
-  <div class ="body-s">
-
   <div class = "sub-title">クイズの内容と コメント</div>
   
   <div class= "comment-genres">
@@ -42,24 +40,29 @@
 
         <div class = "l-comment-area">
           <div class = "user-name"><%=  User.find(comment.user_id).nickname%></div>
-          <div class = "user-comment"><%= comment.text %></div>
+
           <% if user_signed_in? && comment.user_id == current_user.id%>
+            <div class = "current-user-comment"><%= comment.text %></div>
             <div class = "comment-edit-area">
               <%= link_to "へんしゅう", edit_question_comment_path(@question.id, comment.id),class: "comment-edit" %>
               <%=link_to "さくじょ",question_comment_path(@question.id,comment.id),method: :delete,data: { confirm: 'コメントを消してもいい？' }, class: "comment-edit" %> 
             </div>
+          <% else %>
+            <div class = "user-comment"><%= comment.text %></div>
           <% end %>
         </div>
       <% else %>
         <div class = "r-comment-area">
         
         <div class = "another-user-name"><%=  User.find(comment.user_id).nickname%></div>
-          <div class = "user-comment"><%= comment.text %></div>
           <% if user_signed_in? && comment.user_id == current_user.id%>
+          <div class = "current-user-comment"><%= comment.text %></div>
             <div class = "comment-edit-area">
               <%= link_to "へんしゅう", edit_question_comment_path(@question.id, comment.id),class: "comment-edit" %>
               <%=link_to "さくじょ",question_comment_path(@question.id,comment.id),method: :delete,data: { confirm: 'コメントを消してもいい？' }, class: "comment-edit" %> 
             </div>
+          <% else %>
+            <div class = "user-comment"><%= comment.text %></div>
           <% end %>
         </div>
       <% end %>
@@ -82,4 +85,3 @@
   <%=link_to "もどる",question_path(@genre.id), class: "submit"%>
   </div>
 <% end %>
-</div>

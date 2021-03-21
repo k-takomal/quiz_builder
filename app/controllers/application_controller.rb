@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configtre_permitted_parameters, if: :devise_controller?
   before_action :days_data
 
-  
+
   private
 
   def configtre_permitted_parameters

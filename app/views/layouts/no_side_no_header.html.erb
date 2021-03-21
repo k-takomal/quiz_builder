@@ -13,12 +13,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
-  <body id= "no_side">
+  
   <div class ="m_body">
   
-  <div class = "body-l">
     <%= yield %>
-  </div>
+  
   <div class = calender-area>
     <div class = calender-num><%=@month%></div>
     <div class = calender-mark>月</div>
@@ -32,7 +31,7 @@
       <div class = calender-nittyoku>ひよ子</div>
     <% end %>
   </div>
-
-  </div>
+</div>
+  
   </body>
 </html>

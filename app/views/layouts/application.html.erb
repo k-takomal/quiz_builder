@@ -13,28 +13,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
   </head>
-<div class ="m_body">
-  <body>
-  
-    <div class = "body-l">
-    <%= render "//layouts/header" %> 
-        <%= yield %>
-    </div>
-    
-    <div class = calender-area>
-      <div class = calender-num><%=@month%></div>
-      <div class = calender-mark>月</div>
-      <div class = calender-num><%=@day%></div>
-      <div class = calender-mark>日</div>
-      <div class = calender-mark>（<%=@week%>）</div>
-      <div class = calender-mark>日直</div>
-      <% if user_signed_in?%>
-      <div class = calender-nittyoku><%=current_user.nickname%></div>
-      <% else %>
-      <div class = calender-nittyoku>ひよ子</div>
-      <% end %>
-    </div>
 
+  <body>
+
+    <div class ="m_body">
+      <div class = "body-l">
+      <%= render "//layouts/header" %> 
+          <%= yield %>
+      </div>
+      
+        <div class = calender-area>
+          <div class = calender-num><%=@month%></div>
+          <div class = calender-mark>月</div>
+          <div class = calender-num><%=@day%></div>
+          <div class = calender-mark>日</div>
+          <div class = calender-mark>（<%=@week%>）</div>
+          <div class = calender-mark>日直</div>
+          <% if user_signed_in?%>
+          <div class = calender-nittyoku><%=current_user.nickname%></div>
+          <% else %>
+          <div class = calender-nittyoku>ひよ子</div>
+          <% end %>
+        </div>
+
+    </div>
   </body>
-</div>
 </html>

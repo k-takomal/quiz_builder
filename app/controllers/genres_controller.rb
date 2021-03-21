@@ -17,13 +17,13 @@ class GenresController < ApplicationController
     @genre =  Genre.new(genre_params)
     if @genre.valid?
       @genre.save
-      redirect_to new_question_path
+       redirect_to new_genre_path
     else 
       render :new
     end
   end
 
-  
+
   private
 
   def genre_params

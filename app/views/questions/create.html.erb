@@ -1,9 +1,6 @@
-<body onLoad="tm()">
-<div class ="m_body">
-  
-  <div class = "body-l">
+
     
-    <%= image_tag "create.png", class:"create_true" %>
+    <%= image_tag "create.png", class:"create_true", id:"create_true"%>
     <%= image_tag "title3.png", class:"title-image" %>
   
     <% if user_signed_in? %>
@@ -18,16 +15,15 @@
       </div>
     <% end %> 
       
-    <div class = "category-area">
+      <div class = "category-area">
+        <div class ="category"><%= link_to "クイズであそぶ", selects_path, class: "category-write" %>
+        </div>
+          <% if user_signed_in? %>
+            <div class ="category"><%= link_to "クイズをつくる", new_question_path, class: "category-write" %></div>
+          <% end %>
+        <div class ="category"><%= link_to "みんなのクイズ", questions_path, class: "category-write" %>
+        </div>
+      </div>
     
-      <div class ="category"><%= link_to "クイズであそぶ", selects_path, class: "category-write" %></div>
-        <% if user_signed_in? %>
-          <div class ="category"><%= link_to "クイズをつくる", new_question_path, class: "category-write" %></div>
-        <% end %>
-      <div class ="category"><%= link_to "みんなのクイズ", questions_path, class: "category-write" %></div>
-    </div>
-    </div>
-
-  </div>
   </body>
 

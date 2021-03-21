@@ -1,5 +1,6 @@
-<div class = "body-s">
   <div class = "sub-title">クイズへんしゅう</div>
+  <div class="genres"></div>
+  
   <%= form_with(model: @question,  local: true) do |question| %>
 
     <%= render "error_messages", model: @question %>
@@ -10,5 +11,3 @@
       <%=link_to "もどる",question_comments_path(params[:id]), class: "submit"%>
     </div>
   <% end %>
-  
-</div>

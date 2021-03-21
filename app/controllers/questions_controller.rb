@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  layout 'application' ,only: :index
   layout 'on_header_no_login' ,only: [:new,:edit]
   layout 'no_header_on_timer' ,only: :create
   before_action :authenticate_user!, only:[:new, :edit]
@@ -22,7 +23,7 @@ class QuestionsController < ApplicationController
     if @question_comment.valid?
       @question_comment.save
     else
-      render action: :new
+      render :new
     end
   end
 
@@ -30,7 +31,7 @@ class QuestionsController < ApplicationController
   def show
     @genre = Genre.find(params[:id])
     @question = Question.where(genre_id: @genre.id)
-    @questions = @question.order("title")
+    @questions = @question.order("created_at DESC")
   end
 
 
@@ -42,6 +43,7 @@ class QuestionsController < ApplicationController
   
 
   def update
+    @genre = Genre.order("name")
     @question = Question.find(params[:id])
     Comment.create(comment_params)
     if @question.update(update_params)

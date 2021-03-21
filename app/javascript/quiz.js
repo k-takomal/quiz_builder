@@ -1,10 +1,16 @@
-function quizApp(){
-  
-  let quizIndex= 0 ;
-  
-  const $button = document.getElementsByClassName('answer');
-  const $finish_text = document.getElementsByClassName("finish-text");
- 
+(()=>{
+  function quizApp(){
+
+    //出題数（変更時はjoy.indexも変更する）
+    const numberOfQuestion = 5;
+    //出題数（変更時はjoy.indexも変更する）
+
+    let quizIndex= 0 ;
+    const $button = document.getElementsByClassName('answer');
+    const $finish_text = document.getElementsByClassName("finish-text");
+
+  const buttons = document.getElementsByTagName("button")
+  let buttonLength = buttons.length;
   
   
  //クイズの配列をシャッフル
@@ -14,65 +20,25 @@ function quizApp(){
     gon.question[i] = gon.question[j];
     gon.question[j] = tmp; 
     }
-   
  //クイズの配列をシャッフル
   
-console.log(gon.question)
-  
-//クイズの問題
+
+//問題文の表示と選択肢の表示
   const setQuiz=() => {
 
     //何問目の表示
     const number = document.getElementById("number");number.innerHTML= `だい` + (quizIndex + 1) + `問`;
     //何問目の表示
 
-    //フッターのスコアー
-    // let score = document.getElementById("score");
-    // score.innerHTML = `SCORE`+total+`/`+5;
-    //フッターのスコアー
     
-    //問題文の挿入
+    //問題文の表示
     document.getElementById('question').textContent = gon.question[quizIndex].question;
-     //問題文の挿入
-
-    //問題文をタイプライター風に表示
-
-    // function typeLighter(){
-    // function typing(str = ""){
-       
-    //     let buf = document.getElementById("question").innerHTML; //書き込み済みの文字を要素から取得
-
-    //     let writed = buf.length; //書き込み済みの文字数を取得
-
-    //     let write = "";
-
-    //       if(writed < str.length){
-    //         write = str.charAt(writed); //1文字だけ取得する
-    //         // }else{
-    //         //     buf = ""; //今回は何度も繰り返すために内容を消去します
-    //         }
-    //     document.getElementById("question").innerHTML = buf + write; //1文字だけ追加していく
-    //   }
-
-    //   const str = document.getElementById("question").innerHTML; //書き込む文字を要素から取得
-    //   const delay = 100 //1文字が表示される時間
-    //   document.getElementById("question").innerHTML = "";
-      
-    //   window.setInterval(function(){typing(str);}, delay);
-    //   clearInterval;
-    //   const reset = document.getElementById("question").innerHTML = "";
-
-    //   setTimeout(reset,9999);
-    //   clearTimeout;
-    //  }
-    //  typeLighter();
-      //問題文をタイプライター風に表示
-
+    //問題文の表示
 
       
-      //選択肢の表示
-    
-      function choice_1() {
+    //選択肢の表示をランダムにする
+      
+      const choice_1= ()=> {
       $button[0].textContent = gon.question[quizIndex].correct_ans;
       $button[1].textContent = gon.question[quizIndex].wrong_ans_1;
       $button[2].textContent = gon.question[quizIndex].wrong_ans_2;
@@ -116,31 +82,58 @@ console.log(gon.question)
       
       choices[any]();
 
-      //選択肢の表示
+    //選択肢の表示をランダムにする
   }
-//クイズの問題
+
+//問題文の表示と選択肢の表示
+
+//終了画面の表示
+  function end() {
+
+  //画面サイズにより表示画像を変える
+    const smallDevice = window.matchMedia("(min-width: 415px)");
+      function handleDeviceChange(e) {
+        if (e.matches){
+          const finish = document.getElementById("finish");
+          finish.removeAttribute("style","display:none;");
+        }else{
+          const finish = document.getElementById("finish_keitai");
+          finish.removeAttribute("style","display:none;");
+        };
+      };
+
+    handleDeviceChange(smallDevice);
+
+    const finish = document.getElementById("finish-area");
+          finish.removeAttribute("style","display:none;");
+  //画面サイズにより表示画像を変える
+  
+  //正解数  
+    document.getElementById("total_question").innerHTML = numberOfQuestion + "問中";
+
+    document.getElementById("score").innerHTML = total + "問せいかい";
+  //正解数  
+  
+  //詳細欄へ新しいページで遷移
+    let textIndex = 0;
+    let finishTextLength = $finish_text.length;
+      while(textIndex < finishTextLength){
+        $finish_text[textIndex].textContent = gon.question[textIndex].title;
+        $finish_text[textIndex].addEventListener('click',function(){
+          let qId = gon.question[textIndex].id;
+          window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
+        });
+        textIndex++;
+      };
+      //詳細欄へ新しいページで遷移
+  };
+  
+//終了画面の表示
+    
+
+    
 
 
-//マウスが上にきたら色が変わる
-    const buttons = document.getElementsByTagName("button")
-      let buttonOver = 0;
-      let buttonLength = buttons.length;
-      while(buttonOver < buttonLength){
-        buttons[buttonOver].addEventListener('mouseover',function(){
-          this.setAttribute("style","background-color:rgba(255,200,0,0.8);")
-        });
-        buttonOver++
-      }
-      
-      let buttonOut = 0;
-      while(buttonOut < buttonLength){
-        buttons[buttonOut].addEventListener('mouseout',function(){
-          this.removeAttribute("style","background-color:rgba(255,200,0,0.8);")
-        });
-        buttonOut++
-    }
-//マウスが上にきたら色が変わる
-      
 //タイマー
     function headTimer(){
       const totalTime = 10000;
@@ -149,24 +142,23 @@ console.log(gon.question)
         let currentTime = Date.now();
         const diff = currentTime - oldTime;
         const diffSec = totalTime - diff;
-        // const lestTime = Math.floor( diffSec / 1000 );
         let text = "残り " + (diffSec/1000 + 1).toFixed(2) ;
-      //３秒前に赤くなる
+
+      //３秒前に表示が赤くなる
         if (diffSec < 2999){
           document.querySelector("#timer").setAttribute("style","color:red;")
         }
         if (diffSec > 2999){
           document.querySelector("#timer").removeAttribute("style","color:red;")
         }
-      //３秒前に赤くなる
+      //３秒前に表示が赤くなる
 
+      //時間切れ後の処理
         if (diffSec <= 0){
           clearInterval(timeId);
-          //時間切れ画像表示
+        //時間切れ画像表示
           const correct = document.getElementById("time_up");
           correct.removeAttribute("style","display:none;")
-          //時間切れ画像表示
-          
           //1秒後に画像が消える
           function sTimer(){
             sTimeId = setTimeout(vanishImage,1000);
@@ -176,91 +168,36 @@ console.log(gon.question)
             clearTimeout(sTimeId);
           }
           sTimer();
-          
           //1秒後に画像が消える
           quizIndex++;
-          if(quizIndex < 5){
+        //時間切れ画像表示
+
+        //
+          if(quizIndex < numberOfQuestion){
             function next() { 
               setQuiz();
               headTimer();
             }
             setTimeout(next,1000)
           }else{
-          //終了画面の表示
-          function end() {
-            const smallDevice = window.matchMedia("(min-width: 415px)");
-            function handleDeviceChange(e) {
-              if (e.matches){
-                const finish = document.getElementById("finish");
-                finish.removeAttribute("style","display:none;");
-              }else{
-                const finish = document.getElementById("finish_keitai");
-                finish.removeAttribute("style","display:none;");
-              };
-            };
-            handleDeviceChange(smallDevice);
-            console.log(gon.question);
-
-            const finish = document.getElementById("finish-area");
-                finish.removeAttribute("style","display:none;");
-
-              
-              document.getElementById("score").innerHTML = total + "問せいかい";
-
-              let textIndex = 0;
-              let finishTextLength = $finish_text.length;
-                while(textIndex < finishTextLength){
-                  $finish_text[textIndex].textContent = gon.question[textIndex].title;
-                  textIndex++;
-                }
-              console.log(gon.question[0])
-          //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
-          $finish_text[0].addEventListener('click',function(){
-            const qId = gon.question[0].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[1].addEventListener('click',function(){
-            const qId = gon.question[1].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[2].addEventListener('click',function(){
-            const qId = gon.question[2].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[3].addEventListener('click',function(){
-            const qId = gon.question[3].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[4].addEventListener('click',function(){
-            const qId = gon.question[4].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
-              
-              
-            };
             setTimeout(end,1200)
-          //終了画面の表示
-
           }
         }
 
         //選択肢がクリックされたらタイマーをクリアーする
         function clickAns(){
-        const ansBtnA = document.getElementById("answer_a")
-        ansBtnA.addEventListener('click',function(){
-          clearInterval(timeId);
-        })
-
-        const ansBtnB = document.getElementById("answer_b")
-        ansBtnB.addEventListener('click',function(){
-          clearInterval(timeId);
-        })
-
-        const ansBtnC = document.getElementById("answer_c")
-        ansBtnC.addEventListener('click',function(){
-          clearInterval(timeId);
-        })
+          const ansBtnA = document.getElementById("answer_a")
+          ansBtnA.addEventListener('click',function(){
+            clearInterval(timeId);
+          });
+          const ansBtnB = document.getElementById("answer_b")
+          ansBtnB.addEventListener('click',function(){
+            clearInterval(timeId);
+          });
+          const ansBtnC = document.getElementById("answer_c")
+          ansBtnC.addEventListener('click',function(){
+            clearInterval(timeId);
+          });
         };
         //選択肢がクリックされたらタイマーをクリアーする
         
@@ -276,136 +213,64 @@ console.log(gon.question)
   let total = 0;
 
   const clickHandler = (e) =>{
-    
-        if(gon.question[quizIndex].correct_ans === e.target.textContent ){
-          const correct = document.getElementById("good_ans");
-          correct.removeAttribute("style","display:none;")
-          //1秒後に画像が消える
-          function timer(){
-            aTimeId = setTimeout(vanishImage,1000);
-          }
 
-          function vanishImage(){
-            document.getElementById("good_ans").style.display="none";
-            clearTimeout(aTimeId);
-          }
-          timer();
-          //1秒後に画像が消える
-          total++;
-         
-
-        }else{
-          const correct = document.getElementById("no_good_ans");
-          correct.removeAttribute("style","display:none;")
-          //1秒後に画像が消える
-          function timer(){
-            fTimeId = setTimeout(vanishImage,1000);
-          }
-
-          function vanishImage(){
-            document.getElementById("no_good_ans").style.display="none";
-            clearTimeout(fTimeId);
-          }
-          timer();
-          //1秒後に画像が消える
-        }
-
-        quizIndex++;
-        
-        if(quizIndex < 5){
-          
-          //1.2秒後に問題が変わる
-          function timerQ(){
-             setTimeout(vanishQuestion,1200);
-          }
-
-          function vanishQuestion(){
-            setQuiz();
-            headTimer();
-          }
-          timerQ();
-          //1.2秒後に問題が変わる
-          // setQuiz();
-        } else {
-          //終了画面の表示
-            function end() {
-              const smallDevice = window.matchMedia("(min-width: 415px)");
-              function handleDeviceChange(e) {
-                if (e.matches){
-                  const finish = document.getElementById("finish");
-                  finish.removeAttribute("style","display:none;");
-                }else{
-                  const finish = document.getElementById("finish_keitai");
-                  finish.removeAttribute("style","display:none;");
-                };
-              };
-              handleDeviceChange(smallDevice);
-              console.log(gon.question);
-
-              const finish = document.getElementById("finish-area");
-                  finish.removeAttribute("style","display:none;");
-              
-              document.getElementById("score").innerHTML = 
-              total + "問せいかい";
-
-              let textIndex = 0;
-              let finishTextLength = $finish_text.length;
-              while(textIndex < finishTextLength){
-                $finish_text[textIndex].textContent = gon.question[textIndex].title;
-                
-                textIndex++;
-              }
-          //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
-          $finish_text[0].addEventListener('click',function(){
-            const qId = gon.question[0].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[1].addEventListener('click',function(){
-            const qId = gon.question[1].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[2].addEventListener('click',function(){
-            const qId = gon.question[2].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[3].addEventListener('click',function(){
-            const qId = gon.question[3].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-          $finish_text[4].addEventListener('click',function(){
-            const qId = gon.question[4].id;
-            window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-          })
-              // $finish_text[0].addEventListener('click',function(){
-              //   const qId = gon.question[0].id;
-              //   $finish_text[0].href =("//lhttps://quiz-builder-30943.herokuapp.com/questions/" + qId +"/comments")
-              // })
-              // $finish_text[1].addEventListener('click',function(){
-              //   const qId = gon.question[1].id;
-              //   $finish_text[1].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[2].addEventListener('click',function(){
-              //   const qId = gon.question[2].id;
-              //   $finish_text[2].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[3].addEventListener('click',function(){
-              //   const qId = gon.question[3].id;
-              //   $finish_text[3].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-              // $finish_text[4].addEventListener('click',function(){
-              //   const qId = gon.question[4].id;
-              //   $finish_text[4].href =("//localhost:3000/questions/" + qId +"/comments")
-              // })
-          //詳細欄へ新しいページで遷移（本番環境でアドレスの書き換えが必要）
-              
-              
-            };
-            setTimeout(end,1200)
-          //終了画面の表示
-          
-        }
+  //正解の画像が表示される
+    if(gon.question[quizIndex].correct_ans === e.target.textContent ){
+      const correct = document.getElementById("good_ans");
+      correct.removeAttribute("style","display:none;")
+    //1秒後に画像が消える
+      function timer(){
+        aTimeId = setTimeout(vanishImage,1000);
       }
-      //回答ボタンを押した時のアクション
+      function vanishImage(){
+        document.getElementById("good_ans").style.display="none";
+        clearTimeout(aTimeId);
+      }
+      timer();
+    //1秒後に画像が消える
+      total++;
+  //正解の画像が表示される
+  
+  
+  //不正解の画像が表示される
+    }else{
+      const correct = document.getElementById("no_good_ans");
+      correct.removeAttribute("style","display:none;")
+    //1秒後に画像が消える
+      function timer(){
+        fTimeId = setTimeout(vanishImage,1000);
+      }
+      function vanishImage(){
+        document.getElementById("no_good_ans").style.display="none";
+        clearTimeout(fTimeId);
+      }
+      timer();
+    //1秒後に画像が消える
+    };
+  //不正解の画像が表示される
+
+  quizIndex++;
+    
+  //1.2秒後に問題が変わる
+    if(quizIndex < numberOfQuestion){
+      
+      function timerQ(){
+          setTimeout(vanishQuestion,1200);
+      };
+      function vanishQuestion(){
+        setQuiz();
+        headTimer();
+      };
+
+      timerQ();
+
+    } else {
+      setTimeout(end,1200)
+    };
+  //1.2秒後に問題が変わる
+  };
+
+  //回答ボタンを押した時のアクション
       let handlerIndex = 0;
       while (handlerIndex < buttonLength){
         $button[handlerIndex].addEventListener('click',(e) => {
@@ -413,44 +278,48 @@ console.log(gon.question)
         });
         handlerIndex++;
       }
-      //回答ボタンを押した時のアクション
+  //回答ボタンを押した時のアクション
   
+//クリックしたら正誤判定
 
-      // クイズ前のカウントダウン
-        const totalTime = 4000;
-        const oldTime = Date.now();
 
-        const countDown =()=>{
-        const timeId = setInterval(()=>{
-            const currentTime = Date.now();
-            const diff = currentTime - oldTime;
-            const diffSec = totalTime - diff;
-            let text =  Math.floor( diffSec / 1000 );
-              if (diffSec <= 0){
-              clearInterval(timeId);
-              const correct = document.getElementById("count-down");
-                correct.setAttribute("style","display:none;")
-              }
-            document.querySelector("#count-down").innerHTML = text;
-        
-            })
-          }
-      // クイズ前のカウントダウン
+
+
+// クイズ前のカウントダウン
+  const totalTime = 4000;
+  const oldTime = Date.now();
+
+  const countDown =()=>{
+  const timeId = setInterval(()=>{
+      const currentTime = Date.now();
+      const diff = currentTime - oldTime;
+      const diffSec = totalTime - diff;
+      let text =  Math.floor( diffSec / 1000 );
+        if (diffSec <= 0){
+        clearInterval(timeId);
+        const correct = document.getElementById("count-down");
+          correct.setAttribute("style","display:none;")
+        }
+      document.querySelector("#count-down").innerHTML = text;
+  
+      })
+    }
+// クイズ前のカウントダウン
 
           
       
         
       
       
-
- //最初に実行される
-  setTimeout(countDown,0);
+//最初に実行される
+  countDown();
   setTimeout(setQuiz,4000);
   setTimeout(headTimer,4000);
- //最初に実行される
+//最初に実行される
     
    
-    }
+};
     
     window.addEventListener("load",quizApp);
-    
+
+})();

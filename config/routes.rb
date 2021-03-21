@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :questions do
     resources :comments, only:[:index, :create, :edit, :update, :destroy]
   end
-  resources :genres, only: [:new, :create]
+  resources :genres, only: [:index, :new, :create]
 end
