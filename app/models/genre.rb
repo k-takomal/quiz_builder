@@ -1,5 +1,7 @@
 class Genre < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  # validates :name, presence: true, uniqueness: true
+  validates :name, presence:{message: "ジャンル名を書いてください"}
+  validates :name, uniqueness:{message: "すでにそのジャンルはあります"}
   has_many :questions
 
   # ジャンルの並びを問題数の多い順にする
