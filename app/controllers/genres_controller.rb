@@ -1,6 +1,8 @@
 class GenresController < ApplicationController
   layout 'on_header_no_login'
 
+  def index
+  end
 
   def new
     @genre = Genre.new

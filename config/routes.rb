@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :mains, only:[:index]
   resources :selects, only: [:index] do
     resources :joys, only:[:index]
+    resources :user_joys, only:[:index]
   end
   resources :users, only:[:show]
   resources :questions do
