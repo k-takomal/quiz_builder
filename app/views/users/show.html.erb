@@ -1,24 +1,6 @@
   <div class = "sub-title"><%= @user.nickname%>さんの</div>
   <div class = "sub-title">作ったクイズ一覧</div>
   
-  <% if @question.where(user_id: @user.id).count >= 5 %>
-    <div class = "select-cell">
-        <div class="select-genre">
-          <%= link_to "#{@user.nickname}さんの作ったクイズで遊ぶ", select_user_joys_path(@user.id),data: {"turbolinks" => false}%>
-      
-          <%= link_to "#{@question.where(user_id: @user.id).count}問の中からランダムで５問出題されます", select_user_joys_path(@user.id),data: {"turbolinks" => false}, class: "select-genre"%>
-        </div>
-    </div>
-  <% else %>
-    <div class = "no-select-cell" >
-      <%= @user.nickname%>さんの作ったクイズは
-      <%=@question.where(user_id: @user.id).count%>問しかないので選べません
-        <div class = "select-genre-caution">
-          (問題数が５問以上から遊べます)
-        </div>
-    </div>
-    <% end %>
-
     <div class = "genre-index-header">総問題数
     <%= @user_question.count %>問</div>
   <div class = "genre-index-area">

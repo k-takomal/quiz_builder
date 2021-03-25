@@ -16,8 +16,11 @@
     <% end %> 
       
       <div class = "category-area">
-        <div class ="category"><%= link_to "クイズであそぶ", selects_path, class: "category-write" %>
-        </div>
+        <div class ="category" id ="list">クイズであそぶ</div>
+      <ul class ="category-list hidden" id ="pull_down">
+        <li><%= link_to "ジャンルで選ぶ", selects_path, class: "category-write-s" %></li>
+        <li><%= link_to "ユーザーで選ぶ", user_selects_path, class: "category-write-s" %></li>
+      </ul>
           <% if user_signed_in? %>
             <div class ="category"><%= link_to "クイズをつくる", new_question_path, class: "category-write" %></div>
           <% end %>

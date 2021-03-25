@@ -253,10 +253,10 @@ z-index: 90;
 }
 
 .category{
+  cursor: pointer;
   color:black;
-  
+  text-decoration: none;
   font-size: 50px;
-  width:fit-content;
   padding: 10px;
   background-color: white;
   border:ridge 5px gray;
@@ -264,13 +264,29 @@ z-index: 90;
   text-align: center;
 }
 
-.category-write{
-  text-decoration: none;
-  color:black;
+.category-list{
+  background-color: #fdff81;
+  font-size: 25px;
+  padding: 0 15px;
+  border:ridge 5px gray;
+  width:60%;
+  margin-left:auto;
 }
 
-select{
-  border:none;
+.category-write-s:hover{
+  color:blueviolet;
+}
+.category-write{
+  color:black;
+  text-decoration: none;
+}
+.category-write-s{
+  text-decoration: none;
+  color:blue;
+}
+
+.hidden{
+  display:none;
 }
 
 /* メイン画面 */
@@ -707,7 +723,7 @@ padding-bottom: 30px;
 
 .select-cell {
   width: fit-content;
-  height: 70px;
+  height: 80px;
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -729,6 +745,9 @@ padding-bottom: 30px;
   background-color: lightskyblue;
 }
 
+.select-genre-name{
+  font-size: 30px;
+}
 .select-genre{
   display: flex;
   flex-direction: column;
@@ -1165,5 +1184,12 @@ padding-bottom: 30px;
     margin-bottom: 10px;
   }
 
+  .category-list{
+    font-size:22px;
+  }
+
+  .select-genre-name{
+    font-size:29px;
+  }
 }
  /*携帯電話端末 */
