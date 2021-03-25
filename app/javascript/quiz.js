@@ -9,8 +9,8 @@
     const $button = document.getElementsByClassName('answer');
     const $finish_text = document.getElementsByClassName("finish-text");
 
-  const buttons = document.getElementsByTagName("button")
-  let buttonLength = buttons.length;
+    const buttons = document.getElementsByTagName("button")
+    let buttonLength = buttons.length;
   
   
  //クイズの配列をシャッフル
@@ -120,7 +120,7 @@
       while(textIndex < finishTextLength){
         $finish_text[textIndex].textContent = gon.question[textIndex].title;
         $finish_text[textIndex].addEventListener('click',function(){
-          let qId = gon.question[textIndex].id;
+          let qId = gon.question[quizIndex].id;
           window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
         });
         textIndex++;
