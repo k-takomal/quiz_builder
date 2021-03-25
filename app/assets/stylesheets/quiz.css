@@ -274,6 +274,7 @@ ul,li{
   border:ridge 5px gray;
   width:60%;
   margin-left:auto;
+  margin-top: 0;
 }
 
 .category-write-s:hover{
