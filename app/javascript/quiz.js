@@ -118,21 +118,20 @@
     let textIndex = 0;
     let finishTextLength = $finish_text.length;
       while(textIndex < finishTextLength){
+        //タイトル表示
         $finish_text[textIndex].textContent = gon.question[textIndex].title;
-        $finish_text[textIndex].addEventListener('click',function(){
-          let qId = gon.question[quizIndex].id;
-          window.open("//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments","_blank")
-        });
+        //アドレス変更    
+        let qId = gon.question[textIndex].id;
+        $finish_text[textIndex].href=
+            "//quiz-builder-30943.herokuapp.com/questions/" + qId + "/comments";
+            
         textIndex++;
       };
-      //詳細欄へ新しいページで遷移
+  //詳細欄へ新しいページで遷移
   };
   
 //終了画面の表示
     
-
-    
-
 
 //タイマー
     function headTimer(){
