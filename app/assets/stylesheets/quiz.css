@@ -253,6 +253,7 @@ ul,li{
   height: fit-content;
   margin: 0 auto;
   padding:30px auto;
+  
 }
 
 .category{
@@ -268,11 +269,12 @@ ul,li{
 }
 
 .category-list{
+  position: absolute;
+  left:260px;
   background-color: #fdff81;
   font-size: 25px;
   padding: 0 15px;
   border:ridge 5px gray;
-  width:60%;
   margin-left:auto;
   margin-top: 0;
 }
@@ -1190,7 +1192,10 @@ padding-bottom: 30px;
 
   .category-list{
     font-size:22px;
+    width: 60%;
+    left: 124px;
   }
+  
 
   .select-genre-name{
     font-size:29px;
