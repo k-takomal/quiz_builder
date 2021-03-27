@@ -56,7 +56,7 @@ body{
   background-color: white;
   margin:0 20px 30px;
   position: relative;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .count-down{
@@ -142,6 +142,7 @@ z-index: 90;
 }
 
 .question-header{
+  height: 105px;
   display: flex;
   padding:15px
 }
@@ -167,8 +168,11 @@ z-index: 90;
 .question{
   font-size: 30px ;
   color:black;
+  height:260px;
   justify-content: space-around;
-  margin:40px 50px;
+  margin:0 50px 40px;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
 }
 
 .answers{
@@ -1040,9 +1044,8 @@ padding-bottom: 30px;
 
   .question-header {
     display: flex;
-
     flex-direction: column;
-    padding: 15px;
+    padding: 0;
   }
 
   .number {
