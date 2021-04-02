@@ -4,9 +4,10 @@ class JoysController < ApplicationController
 
   def index
     @question = Question.where(genre_id: params[:select_id])
-    @genre = Genre.find(params[:select_id])
+    @genre = Genre.all
     gon.question = @question
-
+    gon.genre = @genre
+    
   end
 
 end

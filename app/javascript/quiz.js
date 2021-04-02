@@ -23,18 +23,34 @@
  //クイズの配列をシャッフル
   
 
+ 
+
 //問題文の表示と選択肢の表示
   const setQuiz=() => {
 
     //何問目の表示
-    const number = document.getElementById("number");number.innerHTML= `だい` + (quizIndex + 1) + `問`;
+    const number = document.getElementById("number");
+    number.innerHTML= `だい` + (quizIndex + 1) + `問`;
     //何問目の表示
 
+    //ジャンル名の表示
+      //開発環境用
+      // const genreName =document.getElementById("genre-name");
+      // genreName.innerHTML= gon.genre[gon.question[quizIndex].genre_id-1].name + "のクイズ"
+      //開発環境用
+
+      //本番環境ではこちら
+      const genreName =document.getElementById("genre-name");
+      genreName.innerHTML= gon.genre[Math.floor(gon.question[quizIndex].genre_id/10-1)].name + "のクイズ"
+      //本番環境ではこちら
+
+    //ジャンル名の表示
     
     //問題文の表示
     document.getElementById('question').textContent = gon.question[quizIndex].question;
     //問題文の表示
 
+    
       
     //選択肢の表示をランダムにする
       
@@ -212,7 +228,12 @@
   let total = 0;
 
   const clickHandler = (e) =>{
-
+  //選択肢をクリックできないようにする
+  $button[0].disabled = true;
+  $button[1].disabled = true;
+  $button[2].disabled = true;
+  //選択肢をクリックできないようにする
+  
   //正解の画像が表示される
     if(gon.question[quizIndex].correct_ans === e.target.textContent ){
       const correct = document.getElementById("good_ans");
@@ -259,6 +280,7 @@
       function vanishQuestion(){
         setQuiz();
         headTimer();
+        clickOk();
       };
 
       timerQ();
@@ -268,18 +290,20 @@
     };
   //1.2秒後に問題が変わる
   };
+  //クリックしたら正誤判定
 
   //回答ボタンを押した時のアクション
-      let handlerIndex = 0;
+    
+    let handlerIndex = 0;
       while (handlerIndex < buttonLength){
         $button[handlerIndex].addEventListener('click',(e) => {
           clickHandler(e);
         });
         handlerIndex++;
       }
+  
   //回答ボタンを押した時のアクション
   
-//クリックしたら正誤判定
 
 
 
@@ -305,7 +329,13 @@
     }
 // クイズ前のカウントダウン
 
-          
+//回答ボタンを押せるようにする
+function clickOk(){
+$button[0].disabled = false;
+$button[1].disabled = false;
+$button[2].disabled = false;
+};
+//回答ボタンを押せるようにする          
       
         
       
@@ -314,6 +344,8 @@
   countDown();
   setTimeout(setQuiz,4000);
   setTimeout(headTimer,4000);
+  setTimeout(clickOk,4000);
+  
 //最初に実行される
     
    
