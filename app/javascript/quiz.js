@@ -41,7 +41,7 @@
 
       //本番環境ではこちら
       const genreName =document.getElementById("genre-name");
-      genreName.innerHTML= gon.genre[Math.floor(gon.question[quizIndex].genre_id/10-1)].name + "のクイズ"
+      genreName.innerHTML= gon.genre[Math.floor(gon.question[quizIndex].genre_id/10)].name + "のクイズ"
       //本番環境ではこちら
 
     //ジャンル名の表示
